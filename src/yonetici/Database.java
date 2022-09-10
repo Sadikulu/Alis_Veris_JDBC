@@ -16,7 +16,7 @@ public class Database {
         }
     }
 
-    static Connection con = db.connet_to_db("Alis_Veris_Yeni", "av_user", "A1234");
+    static Connection con = db.connet_to_db("Alis_Veris", "av_user", "A1234");
     static Statement st;
 
     static {
