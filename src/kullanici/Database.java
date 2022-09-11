@@ -25,16 +25,20 @@ public class Database {
     }
 
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         db.createTable("manav");
-        //ManavUrunler.urunEkleme();
+        ManavUrunler.urunEkleme();
         db.createTable("sarkuteri");
-        //SarkuteriUrunler.urunEkleme();
+        SarkuteriUrunler.urunEkleme();
         db.createTable("market");
-        //MarketUrunler.urunEkleme();
+        MarketUrunler.urunEkleme();
 
-        con.close();
-        st.close();
+        try {
+            con.close();
+            st.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
     public Connection connet_to_db(String dbName, String user, String password) {
         Connection con = null;
@@ -61,6 +65,4 @@ public class Database {
             System.out.println("Tablo zaten var");
         }
     }
-
-
 }

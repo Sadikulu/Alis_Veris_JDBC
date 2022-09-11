@@ -28,7 +28,7 @@ public class Database {
     }
 
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         db.createTable("manav");
         //ManavUrunler.urunEkleme();
         db.createTable("sarkuteri");
@@ -36,8 +36,12 @@ public class Database {
         db.createTable("market");
         //MarketUrunler.urunEkleme();
 
-        con.close();
-        st.close();
+        try {
+            con.close();
+            st.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
     public Connection connet_to_db(String dbName, String user, String password) {
         Connection con = null;

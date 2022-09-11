@@ -8,22 +8,21 @@ public class UrunSilme extends Database {
     public static void silme() {
         System.out.println("Lütfen silmek istediğiniz ürünün reyonu seçiniz\n"
                 + "1 Manav\n" + "2 Sarkuteri\n" + "3 Market");
-        for (int i = 0; i <1 ; i++) {
-            try {
-                int secim = scan.nextInt();
-                if (secim == 1) {
-                    UrunSilmeManav.urunSilme();
-                } else if (secim == 2) {
-                    UrunSilmeSarkuteri.urunSilme();
-                } else if (secim == 3) {
-                    UrunSilmeMarket.urunSilme();
-                } else{
-                    System.out.println("Geçerli bir işlem giriniz");
-                    i--;
-                }
-            } catch (Exception e) {
+        try {
+            int secim = scan.nextInt();
+            if (secim == 1) {
+                UrunSilmeManav.urunSilme();
+            } else if (secim == 2) {
+                UrunSilmeSarkuteri.urunSilme();
+            } else if (secim == 3) {
+                UrunSilmeMarket.urunSilme();
+            } else {
                 System.out.println("Geçerli bir işlem giriniz");
+                silme();
             }
+        } catch (Exception e) {
+            System.out.println("Geçerli bir işlem giriniz");
+            silme();
         }
     }
 }
